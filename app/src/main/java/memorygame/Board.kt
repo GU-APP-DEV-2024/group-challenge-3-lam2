@@ -6,7 +6,14 @@ class Board( ) {
     private var cards: Array<Card> = emptyArray<Card>()
 
     init {
-
+        cards = arrayOf(
+            Card('H', "2"),
+            Card('H', "2"),
+            Card('S', "4"),
+            Card('S', "4"),
+            Card('D', "6"),
+            Card('D', "6")
+        )
     }
 
     fun getValueAt(index:Int): Card {

@@ -3,17 +3,15 @@ package memorygame
 class Board( ) {
     //Constructor to create board of different sizes.
     // Assign
-    private var cards: Array<Card> = emptyArray<Card>()
+    private val availableCard = arrayOf<Card>(Card('c',"A"), Card('h',"10"), Card('d', "3"))
+    private var cards: Array<Card> = Array<Card>(6) {_ -> Card(' ',"")}
 
     init {
-        cards = arrayOf(
-            Card('H', "2"),
-            Card('H', "2"),
-            Card('S', "4"),
-            Card('S', "4"),
-            Card('D', "6"),
-            Card('D', "6")
-        )
+        for( i in 0..2) {
+            cards[i] = availableCard.random()
+            cards[2*i+1] = cards[i]
+        }
+        cards.shuffle()
     }
 
     fun getValueAt(index:Int): Card {
